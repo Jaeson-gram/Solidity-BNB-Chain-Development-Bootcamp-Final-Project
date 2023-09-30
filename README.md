@@ -21,7 +21,7 @@ One unique feature of this contract is the ability to track user balances in Tok
 
    ```bash
    git clone https://github.com/Jaeson-gram/Solidity-BNB-Chain-Development-Bootcamp-Final-Project
-   cd token-converter
+   cd tokenconverter
 Install project dependencies:
 
 bash
