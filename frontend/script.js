@@ -13,7 +13,7 @@ window.addEventListener('load', async () => {
     }
 });
 
-const contractAddress = 'YOUR_CONTRACT_ADDRESS'; // Replace with the deployed contract address
+const contractAddress = 'CONTRACT_ADDRESS'; // Replace with the deployed contract address
 const contractAbi = [ /* ABI of your contract */ ];
 
 const contract = new web3.eth.Contract(contractAbi, contractAddress);
@@ -27,5 +27,46 @@ async function convertToken() {
     } catch (error) {
         console.error(error);
         document.getElementById("result").textContent = `Conversion failed. Check console for details.`;
+    }
+}
+
+// Function to get the number of conversions
+async function getConversionCount() {
+    try {
+        const contract = new web3.eth.Contract(abi, contractAddress);
+
+        const count = await contract.methods.getConversionCount().call();
+        
+        document.getElementById("conversionCount").innerHTML = `Total Conversions: ${count}`;
+    } catch (error) {
+        console.error("Error fetching conversion count:", error);
+    }
+}
+
+// Function to get conversion details by index
+async function getConversionDetails() {
+    try {
+        const index = parseInt(prompt("Enter the index of the conversion:"));
+
+        if (isNaN(index)) {
+            alert("Please enter a valid index.");
+            return;
+        }
+
+        const contract = new web3.eth.Contract(abi, contractAddress);
+
+        const details = await contract.methods.getConversionDetails(index).call();
+
+        const [user, amount, converted, fee] = details;
+
+        document.getElementById("conversionDetails").innerHTML = `
+            <strong>Conversion Details (Index ${index}):</strong><br>
+            User: ${user}<br>
+            Amount: ${amount}<br>
+            Converted: ${converted}<br>
+            Fee: ${fee}<br>
+        `;
+    } catch (error) {
+        console.error("Error fetching conversion details:", error);
     }
 }
