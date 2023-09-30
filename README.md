@@ -56,3 +56,14 @@ Replace your-username with your GitHub username in the clone command.
 Ensure you have the required dependencies installed.
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+Contact
+## Contact Me
+
+If you have any questions, feedback, or need assistance with this project, feel free to contact me:
+
+- **Email:** [okeyjey@outlook.com](mailto:okeyjey@outlook.com)
+- **Twitter:** [@O_Jey3](https://twitter.com/O_Jey3)
+- **LinkedIn:** [Justice Oke](https://www.linkedin.com/in/justiceokechukwu/)
+
+
